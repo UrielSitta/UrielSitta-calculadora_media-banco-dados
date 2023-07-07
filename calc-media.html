@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-br"> 
+<head> 
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+  <title>Zuchetti - Desafios</title>
+  <link rel="stylesheet" type="text/css" href="css/estilo.css">
+  <link rel="shortcut icon" href="img/icon.jpeg">
+
+</head>
+<body>
+  <header>
+    
+    <nav>
+      
+      <a href="index.html">INICIO</a>
+      <a href="calc-media.html">CALCULADORA DE MEDIA</a>
+      
+
+    </nav>
+    <h3>Zucchetti - DEVSDEVS</h3>
+    <h4>Desafios - DEVSDEVS</h4>
+
+  </header>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br> 
+  <br>
+  <br>    
+  
+<section class="container">
+    
+    <h2>Calculadora de Média</h2>
+
+    <p>O que é: Uma calculadora de média tem como função a soma um conjunto de números e a divisão pelo número de elementos para calcular a média.</p> 
+
+    <p>Assim, com a média calculada é possível dizer se um aluno está aprovado, reprovado ou se ficou em exame.</p>
+
+    <p>Abaixo segue o exemplo para o calculo de média de 5 notas, após isso verifica a situação do aluno (aprovado, reprovado ou em exame).</p>
+
+    <p>Após isso, caso você quer armazenar esses dados, basta envia-los para o banco de dados!</p>
+
+    <h2>Cálculos:</h2>
+    <br>
+    <br>
+
+   <form action="envia-dados.php" method="POST" class="">
+      <label for="nome">Aluno:</label>
+      <input type="text" id="nome" name="nome" required>
+      <br><br>
+      
+      <label for="nota1">Nota 1:</label>
+      <input type="number" id="nota1" name="nota1" min="0"max="10" required>
+      <br><br>
+      
+      <label for="nota2" >Nota 2:</label>
+      <input type="number" id="nota2" name="nota2" min="0"max="10" required>
+      <br><br>
+      
+      <label for="nota3">Nota 3:</label>
+      <input type="number" id="nota3" name="nota3" min="0"max="10" required>
+      <br><br>
+      
+      <label for="nota4">Nota 4:</label>
+      <input type="number" id="nota4" name="nota4" min="0"max="10" required>
+      <br><br>
+      
+      <label for="nota5">Nota 5:</label>
+      <input type="number" id="nota5" name="nota5" min="0" max="10" required>
+      <br><br>
+      
+      <input id ="calcular" type="button" onclick="calcularMedia()" value="Calcular Média">
+      
+      <input id="limpar" type="reset" onclick="limpar()" value="Limpar">
+      <br><br>
+      
+      <label for="media">Média:</label>
+      <input type="number" id="media" name="media" readonly> 
+      <br>
+      <br>
+      <label for="situacao">Situação:</label> 
+      <input type="text" id="situacao" name="situacao" readonly>
+      <br>
+      <label for="enviar-dados">Enviar Para o Banco de Dados:</label> 
+      <input type="submit" id="enviar-dados" name="Enviar">
+      <br><br>
+  
+    </form>
+   
+    
+    <script>
+      function calcularMedia() {
+        let nota1 = parseFloat(document.getElementById("nota1").value);
+        let nota2 = parseFloat(document.getElementById("nota2").value);
+        let nota3 = parseFloat(document.getElementById("nota3").value);
+        let nota4 = parseFloat(document.getElementById("nota4").value);
+        let nota5 = parseFloat(document.getElementById("nota5").value);
+        
+        let media = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
+        
+        document.getElementById("media").value = media.toFixed(2);
+        if (media >= 7){
+           document.getElementById("situacao").value = "APROVADO!"; 
+        } else if (media <7 && media >= 3) {
+          document.getElementById("situacao").value = "EM EXAME!"; 
+        } else {
+          document.getElementById("situacao").value = "REPROVADO!"; 
+        }
+      }
+    </script>
+
+
+  </section>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>
+    
+    <h3>Zucchetti - DEVSDEVS</h3>
+    <h4>Desafios - DEVSDEVS</h4>
+    <br>
+    <p class="texto-footer">CONTATOS: </p>
+    <p class="texto-footer">heroneurielhecklersitta@gmail.com</p>
+    <p class="texto-footer">WHATSAPP: (49) 984088818</p>
+    <p class="texto-footer">CNPJ: 00.000.000/0001-00</p>
+    <br>
+    
+    <br>
+
+  </footer>
+
+</body>
+
+</html>
